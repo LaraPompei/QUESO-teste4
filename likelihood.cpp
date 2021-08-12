@@ -21,7 +21,7 @@ double Likelihood<V, M>::lnValue(const V& domainVector) const{
     double error_A = abs((model - m_data_mean[0])/m_stdDevs[0]);
     cerr<<error_A<<" ";
     double misfitValue = error_A*error_A;
-    return -1.35*misfitValue;
+    return -1.5*misfitValue;
 }
 
 

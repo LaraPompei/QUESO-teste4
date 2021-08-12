@@ -15,7 +15,7 @@ void filling_matrix(double* t, double* values_a, double** data){
     // setup a distribution:
     double lower = 1.8; //lower bound of range
     double upper = 2.2; //upper bound of range
-    uniform_int_distribution<double> dist(lower, upper);
+    uniform_real_distribution<double> dist(lower, upper);
     cerr<<"a_distribuition = [";
     for (int i =0; i<number_samples; i++) {
         values_a[i] = dist(engine);
