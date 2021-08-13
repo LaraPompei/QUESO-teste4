@@ -22,9 +22,9 @@ ip_mh_dataOutputFileName   = outputData/sipOutput                           # Na
 ip_mh_dataOutputAllowedSet = 0 1                                            # defines which subenvironments will write to data output file 
 
 ip_mh_rawChain_dataInputFileName    = .                                     # Name of date file that contains the raw chain ["."]
-ip_mh_rawChain_size                 = 200000                                 # Size of the raw chain
+ip_mh_rawChain_size                 = 2000000                                 # Size of the raw chain
 ip_mh_rawChain_generateExtra        = 0                                     # (?) [0]
-ip_mh_rawChain_displayPeriod        = 20000                                  # [500]
+ip_mh_rawChain_displayPeriod        = 200000                                  # [500]
 ip_mh_rawChain_measureRunTimes      = 1                                     # [1]
 ip_mh_rawChain_dataOutputFileName   = outputData/sipOutput_raw_chain        # ["."]
 ip_mh_rawChain_dataOutputAllowedSet = 0 1 2 3 4 5 6 7                       # (?)
