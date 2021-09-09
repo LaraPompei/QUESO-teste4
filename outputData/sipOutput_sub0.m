@@ -1,2 +1,2 @@
-ip_mh_rejected = 0.007847;
+ip_mh_rejected = 0.003908;
 

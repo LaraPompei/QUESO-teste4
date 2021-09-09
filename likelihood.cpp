@@ -15,13 +15,13 @@ Likelihood<V,M>::Likelihood(const char* prefix, const VectorSet<V, M>& domain, c
 template<class V, class M>
 double Likelihood<V, M>::lnValue(const V& domainVector) const{
     double a = domainVector[0];
-    cout<<domainVector[0]<<" ";
+    //cout<<domainVector[0]<<" ";
     //Likelihood::values_of_a.push_back(a);
     double model = exp(-a*m_t[poi]);
     double error_A = abs((model - m_data_mean[0])/m_stdDevs[0]);
-    cerr<<error_A<<" ";
-    double misfitValue = error_A*error_A;
-    return -1.5*misfitValue;
+    //cerr<<error_A<<" ";
+    double misfitValue = -1.5*error_A*error_A;
+    return misfitValue;
 }
 
 

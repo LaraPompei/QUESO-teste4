@@ -16,12 +16,12 @@ void filling_matrix(double* t, double* values_a, double** data){
     double lower = 1.8; //lower bound of range
     double upper = 2.2; //upper bound of range
     uniform_real_distribution<double> dist(lower, upper);
-    cerr<<"a_distribuition = [";
+    //cerr<<"a_distribuition = [";
     for (int i =0; i<number_samples; i++) {
         values_a[i] = dist(engine);
-        cerr<<values_a[i]<<" ";
+        //cerr<<values_a[i]<<" ";
     }
-    cerr<<"]"<<endl<<endl;
+    //cerr<<"]"<<endl<<endl;
     //    <<"data_distribuition = [ ";
     for(int i=0; i<number_samples; i++){
         for(int j=0;j<tam; j++){
@@ -39,7 +39,7 @@ void compute(const FullEnvironment& env){
 
     gettimeofday(&timevalNow, NULL);
     if (env.fullRank() == 0){
-        cout<<"\nBeginning run of 'Example 3: Normal Distribution Function (2,0.2)' example at "<<ctime(&timevalNow.tv_sec)<<endl;
+        cout<<"\nBeginning run of 'Example 4: uniform Distribution Function (1.8,2.2)' example at "<<ctime(&timevalNow.tv_sec)<<endl;
     }  
     env.fullComm().Barrier();
     env.subComm().Barrier();
@@ -53,7 +53,7 @@ void compute(const FullEnvironment& env){
     GslVector paramMinValues(paramSpace.zeroVector());
     GslVector paramMaxValues(paramSpace.zeroVector());
     paramMinValues[0] = 0.0;
-    paramMaxValues[0] = 6.0;
+    paramMaxValues[0] = 3.0;
     BoxSubset<> paramDomain("param_", paramSpace, paramMinValues, paramMaxValues);
     
     //instantiating the likelihood function object
@@ -85,12 +85,12 @@ void compute(const FullEnvironment& env){
 
     //data mean
     cerr<<"Calculating the mean of the data"<<endl;
-    cerr<<"data[:][poi] = [ ";
+    //cerr<<"data[:][poi] = [ ";
     for(int i = 0; i < number_samples; i++){
         data_mean += data[i][poi];
-        cerr<<data[i][poi]<<" ";
+        //cerr<<data[i][poi]<<" ";
     }
-    cerr<<" ]"<<endl;
+    //cerr<<" ]"<<endl;
     data_mean = data_mean/number_samples;
     cerr<<"Data_mean = "<<data_mean<<endl;
     
@@ -128,7 +128,7 @@ void compute(const FullEnvironment& env){
     ip.solveWithBayesMetropolisHastings(NULL, paramInitials, &proposalCovMatrix);
     cerr<<"]"<<endl;
     if (env.fullRank() == 0) {
-        cout << "Ending run of 'Example 3: Normal Distribution Function (2,.2)' example at "
+        cout << "Ending run of 'Example 4: uniform Distribution Function (1.8,2.2)' example at "
               << ctime(&timevalNow.tv_sec)
               << std::endl;
     }
